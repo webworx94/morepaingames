@@ -33,7 +33,7 @@ body {
   z-index: -1;
 }
 
-/* Navbar */
+/* -------------------- NAVBAR -------------------- */
 .navbar {
   position: fixed;
   top: 0;
@@ -135,7 +135,7 @@ body {
   }
 }
 
-/* Hero */
+/* -------------------- HOME - TITEL -------------------- */
 .hero {
   height: auto;
   min-height: 70vh;
@@ -156,7 +156,7 @@ body {
   text-shadow: 0 0 15px rgba(255, 153, 0, 0.6);
 }
 
-.hero-content h1 .h1span {
+.h1span {
   color: #ff9900;
 }
 
@@ -170,14 +170,14 @@ body {
   letter-spacing: 1px;
 }
 
-/* Info Container */
+/* -------------------- HOME - INFOS -------------------- */
 .info-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   max-width: 1200px; /* breiter als vorher */
   margin: -50px auto 0 auto;
-  padding: 0 20px 50px 20px;
+  padding: 0 20px 150px 20px;
   gap: 0; /* wir regeln die vertikale Lücke separat */
 }
 
@@ -231,8 +231,156 @@ body {
   line-height: 1.5;
   color: #e0e0e0;
 }
+/* -------------------- GAMES PAGE -------------------- */
 
-/* === Footer === */
+/* Kein Video, stattdessen fixes Bild */
+.bg-image {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: url("../media/keyboard.jpg") center center / cover no-repeat;
+  z-index: -2;
+}
+
+/* Hero für Games */
+.games-hero {
+  min-height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.games-hero-content h1 {
+  font-size: 5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #fff;
+  text-shadow: 0 0 15px rgba(255,153,0,0.6);
+}
+
+.h2description {
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: #ccc;
+}
+
+/* Hauptcontainer */
+.games-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 50px 20px 100px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 120px;
+}
+
+/* Game-Block Layout */
+.game-block {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.game-block.left-text .game-text { order: 1; }
+.game-block.left-text .game-gallery { order: 2; }
+.game-block.right-text .game-gallery { order: 1; }
+.game-block.right-text .game-text { order: 2; }
+
+/* Text */
+.game-text {
+  flex: 1;
+  min-width: 280px;
+  max-width: 500px;
+}
+
+.game-text h2 {
+  font-size: 2rem;
+  color: #ff9900;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+.game-text p {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: #e0e0e0;
+  margin-bottom: 15px;
+}
+
+/* Steam-Link */
+.steam-link {
+  display: inline-block;
+  margin-top: 8px;
+  color: #ff9900;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.steam-link:hover {
+  color: #fff;
+}
+
+/* Galerie */
+.game-gallery {
+  flex: 1;
+  min-width: 350px;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gallery-display {
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.gallery-display iframe,
+.gallery-display img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gallery-thumbs {
+  margin-top: 15px;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.gallery-thumbs img {
+  width: 90px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 6px;
+  opacity: 0.7;
+  cursor: pointer;
+  transition: opacity 0.3s ease, transform 0.2s ease;
+}
+
+.gallery-thumbs img:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.gallery-thumbs img.active {
+  opacity: 1;
+  border: 2px solid #ff9900;
+}
+
+/* -------------------- FOOTER -------------------- */
 .footer {
   background-color: #c57600;
   width: 100%;
@@ -296,6 +444,18 @@ body {
 @media (max-width: 911px) {
   .hero-content h1 {
     font-size: 4rem;
+  }
+  .game-block {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .game-text, .game-gallery {
+    max-width: 100%;
+  }
+
+  .games-hero-content h1 {
+    font-size: 3.5rem;
   }
 }
 @media (max-width: 768px) {
