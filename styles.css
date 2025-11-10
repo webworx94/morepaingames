@@ -275,6 +275,9 @@ body {
   color: #fff;
   text-shadow: 0 0 15px rgba(255,153,0,0.6);
 }
+.games-hero-content a {
+  color: #ff9900;
+}
 
 .h2description {
   font-size: 1.5rem;
@@ -626,15 +629,6 @@ body {
 .send-btn:hover {
   background: #ff9100;
 }
-.redirect {
-  display: flex;
-  justify-content: center;
-  color: white;
-}
-.redirect a {
-  color: #ff9100;
-  margin: 0 5px;
-}
 /* -------------------- FOOTER -------------------- */
 .footer {
   background-color: #c57600;
@@ -804,5 +798,6 @@ body {
     gap: 50px;
 }
 }
+
 
 
