@@ -25,12 +25,9 @@
     </div>
   </section>
   
-  <!-- Google reCAPTCHA automatisch laden -->
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-
-  <!-- JS für Captcha-Check -->
+  <!-- Google reCAPTCHA Script mit onload Callback -->
   <script>
-    document.addEventListener("DOMContentLoaded", function() {
+    function validateCaptcha() {
       const form = document.getElementById("unsubscribe-form");
       form.addEventListener("submit", function(e) {
         if (grecaptcha.getResponse() === "") {
@@ -39,10 +36,15 @@
           return false;
         }
       });
-    });
-  </script>
+    }
 
-  <!-- Dein bestehendes script.js für Hamburger, Video, Galerie -->
+    function onloadCallback() {
+      validateCaptcha();
+    }
+  </script>
+  <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
+
+  <!-- Dein bestehendes script.js bleibt für Hamburger, Video und Galerie -->
   <script src="../script.js"></script>
 </body>
 </html>
