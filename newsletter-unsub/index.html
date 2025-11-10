@@ -27,5 +27,18 @@
   
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <script src="../script.js"></script>
+  <script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const form = document.getElementById("unsubscribe-form");
+
+    form.addEventListener("submit", function(e) {
+      if (grecaptcha.getResponse() === "") {
+        e.preventDefault();
+        alert("Bitte bestätige, dass du kein Roboter bist!");
+        return false;
+      }
+    });
+  });
+  </script>
 </body>
 </html>
