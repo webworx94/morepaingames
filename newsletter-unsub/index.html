@@ -17,7 +17,7 @@
     <div class="games-hero-content">
       <h2>to unsubscribe, please type in your email below:</h2>
       <br>
-      <form class="newsletter-form" action="https://www.web-worx.ch/mpg/unsubscribe.php" method="POST">
+      <form id="unsubscribe-form" class="newsletter-form" action="https://www.web-worx.ch/mpg/unsubscribe.php" method="POST">
         <input type="email" name="email" placeholder="Enter your email" required>
         <div class="g-recaptcha" data-sitekey="6LcH7wcsAAAAAEplyehT9MRMOVEYjgUytr7VddwA"></div>
         <button type="submit">Unsubscribe</button>
@@ -25,20 +25,26 @@
     </div>
   </section>
   
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-  <script src="../script.js"></script>
+  <!-- Google reCAPTCHA Script mit onload Callback -->
   <script>
-  document.addEventListener("DOMContentLoaded", function() {
-    const form = document.getElementById("unsubscribe-form");
+    function validateCaptcha() {
+      const form = document.getElementById("unsubscribe-form");
+      form.addEventListener("submit", function(e) {
+        if (grecaptcha.getResponse() === "") {
+          e.preventDefault();
+          alert("Bitte bestätige, dass du kein Roboter bist!");
+          return false;
+        }
+      });
+    }
 
-    form.addEventListener("submit", function(e) {
-      if (grecaptcha.getResponse() === "") {
-        e.preventDefault();
-        alert("Bitte bestätige, dass du kein Roboter bist!");
-        return false;
-      }
-    });
-  });
+    function onloadCallback() {
+      validateCaptcha();
+    }
   </script>
+  <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
+
+  <!-- Dein bestehendes script.js bleibt für Hamburger, Video und Galerie -->
+  <script src="../script.js"></script>
 </body>
 </html>
