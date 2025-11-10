@@ -626,7 +626,15 @@ body {
 .send-btn:hover {
   background: #ff9100;
 }
-
+.redirect {
+  display: flex;
+  justify-content: center;
+  color: white;
+}
+.redirect a {
+  color: #ff9100;
+  margin: 0 5px;
+}
 /* -------------------- FOOTER -------------------- */
 .footer {
   background-color: #c57600;
@@ -796,4 +804,5 @@ body {
     gap: 50px;
 }
 }
+
 
