@@ -74,3 +74,25 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   });
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+  const form = document.querySelector(".newsletter-form");
+  form.addEventListener("submit", function(e) {
+    if (grecaptcha.getResponse() === "") {
+      e.preventDefault();
+      alert("Bitte bestätige, dass du kein Roboter bist!");
+      return false;
+    }
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+  const form = document.querySelector(".newsletter-form");
+  form.addEventListener("submit", function(e) {
+    if (grecaptcha.getResponse() === "") {
+      e.preventDefault();
+      alert("Bitte bestätige, dass du kein Roboter bist!");
+      return false;
+    }
+  });
+});
