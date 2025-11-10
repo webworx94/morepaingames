@@ -63,3 +63,11 @@ document.querySelectorAll('.gallery-display').forEach(display => {
 });
 
 
+// === Automatische Weiterleitung nach Newsletter-Abo ===
+document.addEventListener('DOMContentLoaded', () => {
+  if (window.location.pathname.includes('/newsletter-sub/')) {
+    setTimeout(() => {
+      window.location.href = '../index.html';
+    }, 3000);
+  }
+});
