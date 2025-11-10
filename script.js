@@ -63,36 +63,18 @@ document.querySelectorAll('.gallery-display').forEach(display => {
 });
 
 document.addEventListener("DOMContentLoaded", function() {
-  const form = document.querySelector(".contact-form form");
+  // Alle Formulare prüfen, die Captcha haben
+  const forms = document.querySelectorAll(".contact-form form, .newsletter-form");
 
-  form.addEventListener("submit", function(e) {
-    // Überprüfen, ob reCAPTCHA gelöst wurde
-    if (grecaptcha.getResponse() === "") {
-      e.preventDefault(); // Form wird nicht abgeschickt
-      alert("Bitte bestätige, dass du kein Roboter bist!"); // Fehlermeldung
-      return false;
-    }
-  });
-});
-
-document.addEventListener("DOMContentLoaded", function() {
-  const form = document.querySelector(".newsletter-form");
-  form.addEventListener("submit", function(e) {
-    if (grecaptcha.getResponse() === "") {
-      e.preventDefault();
-      alert("Bitte bestätige, dass du kein Roboter bist!");
-      return false;
-    }
-  });
-});
-
-document.addEventListener("DOMContentLoaded", function() {
-  const form = document.querySelector(".newsletter-form");
-  form.addEventListener("submit", function(e) {
-    if (grecaptcha.getResponse() === "") {
-      e.preventDefault();
-      alert("Bitte bestätige, dass du kein Roboter bist!");
-      return false;
-    }
+  forms.forEach(form => {
+    form.addEventListener("submit", function(e) {
+      // Prüfen, ob reCAPTCHA auf dem Formular gelöst wurde
+      const captcha = form.querySelector(".g-recaptcha");
+      if (captcha && grecaptcha.getResponse() === "") {
+        e.preventDefault();
+        alert("Bitte bestätige, dass du kein Roboter bist!");
+        return false;
+      }
+    });
   });
 });
