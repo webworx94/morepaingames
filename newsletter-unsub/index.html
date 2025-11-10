@@ -19,11 +19,13 @@
       <br>
       <form class="newsletter-form" action="https://www.web-worx.ch/mpg/unsubscribe.php" method="POST">
         <input type="email" name="email" placeholder="Enter your email" required>
+        <div class="g-recaptcha" data-sitekey="DEIN_WEBSITE_KEY_HIER"></div>
         <button type="submit">Unsubscribe</button>
       </form>
     </div>
   </section>
   
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <script src="../script.js"></script>
 </body>
 </html>
