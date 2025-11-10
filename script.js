@@ -62,12 +62,15 @@ document.querySelectorAll('.gallery-display').forEach(display => {
   observer.observe(display);
 });
 
+document.addEventListener("DOMContentLoaded", function() {
+  const form = document.querySelector(".contact-form form");
 
-// === Automatische Weiterleitung nach Newsletter-Abo ===
-document.addEventListener('DOMContentLoaded', () => {
-  if (window.location.pathname.includes('/newsletter-sub/')) {
-    setTimeout(() => {
-      window.location.href = '../index.html';
-    }, 3000);
-  }
+  form.addEventListener("submit", function(e) {
+    // Überprüfen, ob reCAPTCHA gelöst wurde
+    if (grecaptcha.getResponse() === "") {
+      e.preventDefault(); // Form wird nicht abgeschickt
+      alert("Bitte bestätige, dass du kein Roboter bist!"); // Fehlermeldung
+      return false;
+    }
+  });
 });
