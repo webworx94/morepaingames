@@ -298,6 +298,10 @@ body {
 .game-text a {
   color: #ff9900;
   font-size: 1.6rem;
+  text-decoration: none;
+}
+.game-text a:hover {
+  text-decoration: underline;
 }
 
 /* Game-Block Layout */
