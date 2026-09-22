@@ -295,6 +295,11 @@ body {
   gap: 200px;
 }
 
+.game-text a {
+  color: #ff9900;
+  font-size: 2rem;
+}
+
 /* Game-Block Layout */
 .game-block {
   display: flex;
